@@ -53,7 +53,7 @@ server.get('/projects', (req, res) => {
     return res.json(projects);
 });
 
-server.put('/projects/:id', checkProjectExists, (req, res) => {
+server.put('/projects/:id', (req, res) => {
     const { id } = req.params;
     const { title } = req.body;
 
