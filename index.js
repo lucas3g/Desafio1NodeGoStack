@@ -53,7 +53,7 @@ server.get('/projects', (req, res) => {
     return res.json(projects);
 });
 
-server.put('/projects/:id', (req, res) => {
+server.put('/projects/:id', checkProjectExists, (req, res) => {
     const { id } = req.params;
     const { title } = req.body;
 
@@ -65,7 +65,7 @@ server.put('/projects/:id', (req, res) => {
 
 });
 
-server.delete('/projects/:id', (req, res) => {
+server.delete('/projects/:id', checkProjectExists, (req, res) => {
     const { id } = req.params;
 
     const projectIndex = projects.findIndex(p => p.id == id);
